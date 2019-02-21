@@ -12,6 +12,7 @@ public class Controller {
 	public void startServer() throws InterruptedException{
 		ConnectionHost host = new ConnectionHost(boardPort);
 		host.run();
-		
+		Consumer consume = new Consumer(host);
+		consume.run();
 	}
 }

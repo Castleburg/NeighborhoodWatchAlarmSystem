@@ -3,7 +3,6 @@ package tcp;
 public class Consumer extends Thread {
 	private String inbound;
 	private ConnectionHost connection;
-	private String name;
 	
 	/**
 	 * Creates the consumer thread. It will consume messages from the queue of its given connection.
@@ -11,9 +10,8 @@ public class Consumer extends Thread {
 	 * @param connection
 	 * @param controller
 	 */
-	public Consumer(String name, ConnectionHost connection){
+	public Consumer(ConnectionHost connection){
 		this.connection = connection;
-		this.name = name;
 	}
 	public void run(){
 		while(true){
@@ -21,7 +19,6 @@ public class Consumer extends Thread {
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
-				System.out.println("A Thread named: " + name + " has died!");
 			}
 			//Take from queue and check if it contains information
 			inbound = connection.takeFromQueue();
