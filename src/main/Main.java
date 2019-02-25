@@ -1,5 +1,7 @@
 package main;
 
+import main.Controller;
+
 public class Main {
 	//Starts the program
 	public static void main(String[] args){
