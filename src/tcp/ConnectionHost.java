@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -33,8 +34,12 @@ public class ConnectionHost extends Thread {
 		while(true) {
 			try{
 				welcomeSocket = new ServerSocket(portNumber);
-				
+				Socket socket = new Socket();
+				socket.connect(new InetSocketAddress("amazonaws.com", 80));
+				System.out.println("Address: "+socket.getLocalAddress()+"Port: "+portNumber);
+				socket.close();
 				sock = welcomeSocket.accept();
+				
 				
 				BufferedReader buffRead = new BufferedReader(new InputStreamReader(sock.getInputStream()));
 				OutputStream out = sock.getOutputStream();
