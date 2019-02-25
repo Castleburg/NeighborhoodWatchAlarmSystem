@@ -22,6 +22,7 @@ public class Consumer extends Thread {
 			}
 			//Take from queue and check if it contains information
 			inbound = connection.takeFromQueue();
+			System.out.println("Received:"+ inbound);
 			if(inbound != ""){
 				connection.putToQueue(inbound);
 			}
