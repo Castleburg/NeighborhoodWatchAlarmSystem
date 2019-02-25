@@ -36,10 +36,10 @@ public class ConnectionHost extends Thread {
 				welcomeSocket = new ServerSocket(portNumber);
 				Socket socket = new Socket();
 				socket.connect(new InetSocketAddress("amazonaws.com", 80));
-				System.out.println("Address: "+socket.getLocalAddress()+"Port: "+portNumber);
+				System.out.println("Address: "+socket.getLocalAddress()+"/nPort: "+portNumber);
 				socket.close();
 				sock = welcomeSocket.accept();
-				
+				System.out.println("Connection Accepted");
 				
 				BufferedReader buffRead = new BufferedReader(new InputStreamReader(sock.getInputStream()));
 				OutputStream out = sock.getOutputStream();
