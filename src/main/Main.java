@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String[] args){
 		System.out.println("Hello from Main");
 		//Create controller and start server hosting
-		Controller controller = new Controller(6161);
+		Controller controller = new Controller(6262);
 		try {
 			controller.startServer();
 		} catch (InterruptedException e) {
